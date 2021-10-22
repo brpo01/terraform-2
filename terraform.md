@@ -51,13 +51,30 @@ tags = merge(
   )
 ```
 
-**NOTE**: Update the variables.tf to declare the variable tags used in the format above:
+**NOTE**: Update the *variables.tf* to declare the variable tags used in the format above:
 
 ```
 variable "tags" {
   description = "A mapping of tags to assign to all resources."
   type        = map(string)
   default     = {}
+}
+```
+
+## Internet Gateway Resource
+
+Create an Internet Gateway in a separate Terraform file internet_gateway.tf
+
+```
+resource "aws_internet_gateway" "ig" {
+  vpc_id = aws_vpc.main.id
+
+  tags = merge(
+    var.tags,
+    {
+      Name = format("%s-%s!", aws_vpc.main.id,"IG")
+    } 
+  )
 }
 ```
 
