@@ -486,4 +486,5 @@ resource "aws_security_group_rule" "inbound-mysql-webserver" {
   security_group_id        = aws_security_group.datalayer-sg.id
 }
 ```
+**IMPORTANT NOTE**: We used the aws_security_group_rule to refrence another security group in a security group.
 
