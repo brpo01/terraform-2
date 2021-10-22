@@ -63,7 +63,7 @@ variable "tags" {
 
 ## Internet Gateway Resource
 
-Create an Internet Gateway in a separate Terraform file internet_gateway.tf
+- Create an Internet Gateway in a separate Terraform file internet_gateway.tf
 
 ```
 resource "aws_internet_gateway" "ig" {
@@ -78,3 +78,9 @@ resource "aws_internet_gateway" "ig" {
 }
 ```
 
+## NAT Gateway Resource
+
+- Create 1 NAT Gateways and 1 Elastic IP (EIP) addresses. Now use a similar approach to create the NAT Gateways in a new file called natgateway.tf.
+
+```
+```
