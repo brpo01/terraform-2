@@ -174,3 +174,38 @@ Now if you run **terraform plan** and **terraform apply** it will add the follow
 - 1 NAT Gateway
 - 1 EIP
 - 2 Route tables
+
+## AWS Identity and Access Management
+
+### IaM and Roles
+
+We want to pass an IAM role our EC2 instances to give them access to some specific resources, so we need to do the following:
+
+1. Create AssumeRole -
+Assume Role uses Security Token Service (STS) API that returns a set of temporary security credentials that you can use to access AWS resources that you might not normally have access to. These temporary credentials consist of an access key ID, a secret access key, and a security token. Typically, you use AssumeRole within your account or for cross-account access. Add the following code to a new file named roles.tf
+
+```
+resource "aws_iam_role" "ec2_instance_role" {
+name = "ec2_instance_role"
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Sid    = ""
+        Principal = {
+          Service = "ec2.amazonaws.com"
+        }
+      },
+    ]
+  })
+
+  tags = merge(
+    var.tags,
+    {
+      Name = "aws assume role"
+    },
+  )
+}
+```
