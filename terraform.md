@@ -110,3 +110,4 @@ resource "aws_nat_gateway" "nat" {
 ```
 **Note**: We need to create an Elastic IP for the NAT Gateway, and you can see the use of depends_on to indicate that the Internet Gateway resource must be available before this should be created. Although Terraform does a good job to manage dependencies, but in some cases, it is good to be explicit.
 
+## AWS Routes Resources
