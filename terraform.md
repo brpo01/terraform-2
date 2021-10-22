@@ -1,4 +1,4 @@
 # AUTOMATE INFRASTRUCTURE WITH IAC USING TERRAFORM
 
-Continue Infrastructure Automation with Terraform
-Let us continue from where we have stopped in Project 16. Based on the knowledge from the previous project lets keep on creating AWS resources!
+Let us continue to our Infrastructure Automation with Terraform. Based on the knowledge from the [previous](https://github.com/brpo01/terraform-1/blob/master/terraform.md) project lets keep on creating AWS resources!!.
+
