@@ -1261,3 +1261,6 @@ variable "environment" {
   type = string
 }
 ```
+
+- Make sure to update your terraform.tfvars file also. You can now deploy all of the resources to your infrastructure. Run **terraform validate**
+to be sure that all of your syntax is accurate, then run **terraform plan** to see all the resources that will be created. Finally run **terraform apply** to deploy your infrastructure
