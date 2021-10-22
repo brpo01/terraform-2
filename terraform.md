@@ -111,3 +111,10 @@ resource "aws_nat_gateway" "nat" {
 **Note**: We need to create an Elastic IP for the NAT Gateway, and you can see the use of depends_on to indicate that the Internet Gateway resource must be available before this should be created. Although Terraform does a good job to manage dependencies, but in some cases, it is good to be explicit.
 
 ## AWS Routes Resources
+
+- Create a file called route_tables.tf and use it to create routes for both public and private subnets, create the below resources. Ensure they are properly tagged.
+
+    - aws_route_table
+    - aws_route
+    - aws_route_table_association
+
