@@ -51,3 +51,13 @@ tags = merge(
   )
 ```
 
+**NOTE**: Update the variables.tf to declare the variable tags used in the format above:
+
+```
+variable "tags" {
+  description = "A mapping of tags to assign to all resources."
+  type        = map(string)
+  default     = {}
+}
+```
+
