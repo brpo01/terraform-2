@@ -490,7 +490,7 @@ resource "aws_security_group_rule" "inbound-mysql-webserver" {
 
 ## Certificate resource From Amazon Certificate Manager
 
-Create cert.tf file and add the following code snippets to it.
+- Create cert.tf file and add the following code snippets to it.
 
 ```
 # The entire section create a certiface, public zone, and validate the certificate using DNS method
@@ -557,3 +557,7 @@ resource "aws_route53_record" "wordpress" {
   }
 }
 ```
+
+## Create an external (Internet facing) Application Load Balancer (ALB)
+
+
