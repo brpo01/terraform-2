@@ -29,3 +29,16 @@ Tagging is a straightforward, but a very powerful concept that helps you manage 
 
 - If there are different teams in the organisation using the same account, tagging can help differentiate who owns which resources.
 
+**Note**: You can add multiple tags as a default set. for example, in out terraform.tfvars file we can have default tags defined.
+
+```
+tags = {
+  Enviroment      = "production" 
+  Owner-Email     = "opraise00@gmail.com"
+  Managed-By      = "Terraform"
+  Billing-Account = "1234567890"
+}
+```
+
+
+
