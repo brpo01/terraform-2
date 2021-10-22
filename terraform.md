@@ -620,7 +620,7 @@ resource "aws_lb_listener" "nginx-listener" {
 
 ## Create an Internal (Internal) Application Load Balancer (ALB)
 
-For the Internal Load balancer we will fillow thje same concepts with the external loadbalancer. Add the code snippets inside the alb.tf file.
+- For the Internal Load balancer we will fillow thje same concepts with the external loadbalancer. Add the code snippets inside the alb.tf file.
 
 ```
 # ----------------------------
@@ -722,5 +722,10 @@ resource "aws_lb_listener_rule" "tooling-listener" {
 }
 ```
 
+## Autoscaling Group Resource
+
+- Now we need to configure our ASG to be able to scale the EC2s out and in depending on the application traffic.
+
+- Based on our Architetcture we need for Auto Scaling Groups for bastion, nginx, wordpress and tooling, so we will create two files; asg-bastion-nginx.tf will contain Launch Template and Austoscaling froup for Bastion and Nginx, then asg-wordpress-tooling.tf will contain Launch Template and Austoscaling group for wordpress and tooling.
 
 
