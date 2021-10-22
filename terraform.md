@@ -721,11 +721,40 @@ resource "aws_lb_listener_rule" "tooling-listener" {
   }
 }
 ```
+### Creating sns topic & notification for all the auto scaling groups
+
+- Create a file called sns-notifications-topic.tf to configure notifications for our autoscaling resource
+
+```
+// Creating sns topic for all the auto scaling groups
+resource "aws_sns_topic" "rotimi-sns" {
+    name = "Default_CloudWatch_Alarms_Topic"
+}
+
+// Creating Notifications for all autoscaling groups
+resource "aws_autoscaling_notification" "rotimi_notifications" {
+  group_names = [
+    aws_autoscaling_group.bastion-asg.name,
+    aws_autoscaling_group.nginx-asg.name,
+    aws_autoscaling_group.wordpress-asg.name,
+    aws_autoscaling_group.tooling-asg.name,
+  ]
+  notifications = [
+    "autoscaling:EC2_INSTANCE_LAUNCH",
+    "autoscaling:EC2_INSTANCE_TERMINATE",
+    "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
+    "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+  ]
+
+  topic_arn = aws_sns_topic.rotimi-sns.arn
+}
+```
 
 ## Autoscaling Group Resource
 
 - Now we need to configure our ASG to be able to scale the EC2s out and in depending on the application traffic.
 
 - Based on our Architetcture we need for Auto Scaling Groups for bastion, nginx, wordpress and tooling, so we will create two files; asg-bastion-nginx.tf will contain Launch Template and Austoscaling froup for Bastion and Nginx, then asg-wordpress-tooling.tf will contain Launch Template and Austoscaling group for wordpress and tooling.
+
 
 
