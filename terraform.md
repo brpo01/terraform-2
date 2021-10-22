@@ -249,4 +249,11 @@ resource "aws_iam_policy" "policy" {
     }
 ```
 
-4. 
+4. Create an Instance Profile and interpolate the IAM Role
+
+```
+resource "aws_iam_instance_profile" "ip" {
+        name = "aws_instance_profile_test"
+        role =  aws_iam_role.ec2_instance_role.name
+    }
+```
