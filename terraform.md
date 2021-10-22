@@ -40,5 +40,14 @@ tags = {
 }
 ```
 
+Now you can tag all you resources using the format below:
 
+```
+tags = merge(
+    var.tags,
+    {
+      Name = "Name of the resource"
+    },
+  )
+```
 
