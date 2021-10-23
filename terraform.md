@@ -1270,3 +1270,7 @@ to be sure that all of your syntax is accurate, then run **terraform plan** to s
 ![2](https://user-images.githubusercontent.com/47898882/138523308-65982281-127a-4a31-9082-b36533ac1810.JPG)
 
 **Note** - Try to plan and apply your Terraform codes, explore the resources in AWS console and make sure you destroy them right away to avoid massive costs.
+
+## Implementation Video
+
+Link - https://drive.google.com/file/d/11s9aEXkYFnaLizbp5_UDJoGEPiiP8BCr/view?usp=sharing
